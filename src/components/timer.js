@@ -12,13 +12,13 @@ const Timer = ({ start, step }) => {
             interval = setInterval(() => {
                 setTime(prevTime => {
                     if (prevTime > 0) {
-                        return (prevTime - (stepTime * step));
+                        return (prevTime - (stepTime * step/1000));
                     } else {
                         setTimeOn(false);
                         return prevTime = start;
                     }
                 })
-            }, 1000)
+            }, step)
         } else {
             clearInterval(interval)
         }
